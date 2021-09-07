@@ -1,0 +1,106 @@
+
+<head>
+<style>
+
+.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('https://image.freepik.com/free-vector/account-concept-illustration_114360-399.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+</style>
+</head>
+
+
+
+<div class="container-fluid ps-md-0">
+  <div class="row g-0">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+   
+    </div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center ">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Get Registerd!</h3>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+ <div class="form-floating mb-3">               
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, class: 'form-control'  %>
+  </div>
+</div>
+
+<div class="form-floating mb-3">    
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true , class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-floating mb-3">
+<div class="field">
+<%= f.label :email %><br/>
+<%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'name@gmail.com'%>
+</div>
+</div>
+
+<div class="form-floating mb-3">
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" , class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-floating mb-3">
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-floating mb-3">
+  <%= f.label "Profile Pic" %>  
+  <%= f.file_field :avatar %>
+ </div>
+ 
+<div class="d-grid">
+<div class="actions">
+     <%= f.submit "Sign Up",  class:"btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" %>
+     </div>
+  <div class="text-end">
+  <p> Have an account? <%= render "devise/shared/links" %> </P>
+  </div>
+</div>
+
+<% end %> 
+
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

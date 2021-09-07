@@ -1,0 +1,86 @@
+
+<head>
+<style>
+
+.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('https://thumbs.dreamstime.com/b/account-login-password-key-computer-man-near-vector-male-character-design-concept-landing-page-web-poster-banner-184009994.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+</style>
+</head>
+
+<div class="container-fluid ps-md-0">
+  <div class="row g-0">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+   
+    </div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center ">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Welcome back!</h3>
+
+              <!-- Sign In Form -->
+              
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <!-- email -->
+
+                <div class="form-floating mb-3">
+                <div class="field">
+                <%= f.label :email %><br/>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'name@gmail.com'%>
+              </div>
+            </div>
+            <!-- password -->
+                <div class="form-floating mb-3">
+                <div class="field">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+              </div>
+                </div>
+               
+                <!-- remember me check box -->
+
+                <div class="form-check mb-3">
+
+                <% if devise_mapping.rememberable? %>
+                  <div class="field">
+                  <%= f.check_box :remember_me , class: 'form-check-input'  %>
+                    <%= f.label :remember_me %>
+                    </div>
+                      <% end %>
+                </div>
+
+                <div class="d-grid">
+                <div class="actions">
+                     <%= f.submit "Log in",  class:"btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" %>
+                     </div>
+                  <div class="text-end">
+                  <p> Have an account? <%= render "devise/shared/links" %> </P>
+                  </div>
+                </div>
+                <% end %> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

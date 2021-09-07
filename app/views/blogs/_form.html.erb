@@ -1,0 +1,25 @@
+<%= form_with model: blog do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+  
+    <div>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %>
+    </div>
+  
+    <div>
+    <%= form.label :picture %><br>
+    <%= form.file_field :picture %>
+  </div>
+  
+   <div class="field">
+    <%= form.label :status  %>
+    <%= form.select :status, ['Public', 'Private'], selected: 'Public' %>
+   </div>
+    
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>

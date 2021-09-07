@@ -1,0 +1,58 @@
+
+<header>
+
+<style> 
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+        <div class="carousel-caption">
+          <h5>Best Bloging Web App</h5>
+          <p>Just write what ever to want and express to right to speak in every possibe maner</p>
+        </div>
+      </div>
+      </div>
+   
+</header>
+
+<!-- Nothing to do with it  -->
+
+
+<!-- Page Content -->
+<section class="py-5">
+  <div class="container">
+    <h1 class="fw-light">Most Blogilious Articles</h1>
+
+    <% @blogs.each do |blog| %>
+        
+    <div class="row">
+    <div class="col-md-7">
+
+      <%= image_tag blog.picture , class: "img-fluid rounded mb-3 mb-md-0 ", style: "height: 300px ; width :700px" %>
+   
+      </div>
+    <div class="col-md-5">
+      <h3> <%= blog.title %> </h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+
+      <%= link_to "Read Blog", blog , class: "btn btn-primary"  %>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <hr>
+
+  <% end %>
+ 
+  </div>
+</section>
+

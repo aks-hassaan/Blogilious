@@ -1,0 +1,8 @@
+<%= form_for   Comment.new    do |f| %>
+    <%= f.text_area :body, placeholder: "Add new Comment" %><br/>
+    <%= f.hidden_field :parent_blog , value: @blog.id  %>  
+    <%= f.hidden_field :commentable_id , value: @blog.id  %>
+    <%= f.hidden_field :commentable_type , value: @blog.class.name  %>
+    <%= f.submit "comment"  %>
+    
+    <% end %>

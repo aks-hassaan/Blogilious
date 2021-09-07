@@ -1,0 +1,57 @@
+<head> 
+<style> 
+body {
+  background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+</style>
+</head>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="card border-0 shadow my-5">
+     <div class="card-body p-5">
+   
+         <h1 class="fw-light"> <%= @blog.title %> </h1>
+         
+         
+    <% if current_user.id != @blog.user_id %>
+         <%  if ! Favorite.exists?(:user_id => current_user.id , :blog_id => @blog.id) %>
+         <%= link_to 'Add to favorites', favorites_path(user_id: current_user.id , blog_id: @blog.id), method: :post %>
+         <% else %>
+         <%= link_to 'Remove from favorites', favorite_path(user_id: current_user.id , blog_id: @blog.id), method: :delete %>
+         <% end %>   
+   
+    <% end %>     
+          <div style="height: 400px; width :800px; margin : 20px">
+              <%= image_tag @blog.picture %>
+         </div>
+     
+       <div class= "mt-20">
+             <p class="lead">  <%= @blog.body %>  </p>
+             <p>....... </P>
+             <div style="height: 300px"> </div>
+             <p class="lead mb-0">.....You've reached the end!</p>
+             
+        </div>
+         <hr> 
+        
+        <div class= "m-20">
+        <h1 class="fw-light">  Comments </h1>
+          <div class = "m-10">
+           <%= render partial: 'comments/form', blog: @blog %>
+          <ul>
+          <%= render partial: 'comments/comment', collection: @blog.comments %>
+          </ul>
+          </div>
+
+          <hr>
+                     
+
+          </div>    
+     </div>
+  </div>
+</div>
