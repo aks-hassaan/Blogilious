@@ -27,11 +27,10 @@ body {
    
     <% end %> 
     
-    <% if current_user && (current_user.id = @blog.user_id) %>
-    
-   
+    <% if current_user && (current_user.id == @blog.user_id) %>
+
   <%= link_to "Edit", edit_blog_path(@blog) , class: "btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"  %>
- 
+
     <% end %>
 
     
